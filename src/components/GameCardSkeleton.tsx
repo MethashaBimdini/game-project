@@ -1,11 +1,12 @@
-import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
+import { Card, CardBody, Box } from "@chakra-ui/react";
 
 const GameCardSkeleton = () => {
   return (
-    <Card width="300px" borderRadius={10} overflow="hidden">
-      <Skeleton height="20px" />
-      <CardBody>
-        <SkeletonText />
+    <Card borderRadius={16} overflow="hidden">
+      <Box className="skeleton-shimmer" height="200px" />
+      <CardBody padding="16px">
+        <Box className="skeleton-shimmer" height="16px" borderRadius="8px" marginBottom={3} />
+        <Box className="skeleton-shimmer" height="12px" borderRadius="8px" width="60%" />
       </CardBody>
     </Card>
   );

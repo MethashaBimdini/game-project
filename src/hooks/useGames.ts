@@ -16,13 +16,16 @@ export interface Game {
   rating_top: number;
 }
 
-const useGames = (gameQuery: GameQuery) => useData<Game>("/games", {
-  params:{
-    genres: gameQuery.genre?.id,
-    platforms: gameQuery.platform?.id,
-    ordering: gameQuery.sortOrder,
-    search: gameQuery.searchText
-  }},
-  [gameQuery]);
+const useGames = (gameQuery: GameQuery) => {
+  console.log("Fetching games with:", gameQuery);  
+  return useData<Game>("/games", {
+    params: {
+      genres: gameQuery.genre?.id,
+      platforms: gameQuery.platform?.id,
+      ordering: gameQuery.sortOrder,
+      search: gameQuery.searchText
+    }
+  }, [gameQuery]);
+};
 
 export default useGames;
